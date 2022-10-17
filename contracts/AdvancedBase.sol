@@ -12,9 +12,18 @@ contract AdvancedBase is RMRKBaseStorage {
     )
         RMRKBaseStorage(symbol, type_)
     {
+        string memory symbol,
+        string memory type_
+        getBaseAddressOfResource (symbol, type_)
         // Custom optional: constructor logic
     }
-
+   function getBaseAddressOfResource(uint64 resourceId)
+        public
+        view
+        returns (address)
+    {
+        return _baseAddresses[resourceId];
+    }
     // Custom expected: external gated functions to add parts.
     // Available internal functions:
     //  _addPart(IntakeStruct memory intakeStruct)
